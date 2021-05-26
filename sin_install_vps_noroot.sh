@@ -104,6 +104,7 @@ EOF
   systemctl start $COIN_NAME.service
   sleep 20
   runuser -l $NODEUSER -c "/home/$NODEUSER/sin-cli importprivkey $COINKEY"
+  #
   systemctl enable $COIN_NAME.service >/dev/null 2>&1
 
   if [[ -z "$(ps axo cmd:100 | egrep $COIN_DAEMON)" ]]; then
