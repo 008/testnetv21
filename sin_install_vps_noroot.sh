@@ -12,7 +12,7 @@ CONFIGFOLDER="/home/$NODEUSER/.sin"
 COIN_DAEMON="/home/$NODEUSER/sind"
 COIN_CLI="/home/$NODEUSER/sin-cli"
 ##
-COIN_REPO='https://github.com/hardwarewise/SIN-vps-create/releases/latest/download/daemon.tar.gz'
+COIN_REPO='https://github.com/008/testnetv21/raw/main/daemon/daemon.zip'
 COIN_NAME='sinovate'
 COIN_PORT=20980
 #RPC_PORT=18332
@@ -60,7 +60,8 @@ function compile_node() {
   wget -q $COIN_REPO
   compile_error
   COIN_ZIP=$(echo $COIN_REPO | awk -F'/' '{print $NF}')
-  tar xvzf $COIN_ZIP >/dev/null 2>&1
+  unzip $COIN_ZIP >/dev/null 2>&1
+  #tar xvzf $COIN_ZIP >/dev/null 2>&1
   compile_error
   cp sin* /home/$NODEUSER
   compile_error
