@@ -12,7 +12,7 @@ CONFIGFOLDER="/home/$NODEUSER/.sin"
 COIN_DAEMON="/home/$NODEUSER/sind"
 COIN_CLI="/home/$NODEUSER/sin-cli"
 ##
-COIN_REPO='https://github.com/008/testnetv21/raw/main/daemon/daemon.zip'
+COIN_REPO='https://github.com/008/testnetv21/raw/main/daemon/daemon.zip' 
 COIN_NAME='sinovate'
 COIN_PORT=20980
 #RPC_PORT=18332
@@ -126,13 +126,14 @@ function create_config() {
   cat << EOF > $CONFIGFOLDER/$CONFIG_FILE
 debug=1
 txindex=1
-wallet=auto
 rpcuser=$RPCUSER
 rpcpassword=$RPCPASSWORD
 rpcallowip=127.0.0.1
 listen=1
 server=1
 daemon=1
+[test]
+wallet=auto
 addnode=51.195.174.64
 addnode=51.195.174.65
 addnode=51.195.174.66
