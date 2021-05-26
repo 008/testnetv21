@@ -103,8 +103,9 @@ EOF
   sleep 3
   systemctl start $COIN_NAME.service
   sleep 20
+  runuser -l $NODEUSER -c "/home/$NODEUSER/sin-cli createwallet auto"
   runuser -l $NODEUSER -c "/home/$NODEUSER/sin-cli importprivkey $COINKEY"
-  #
+  
   systemctl enable $COIN_NAME.service >/dev/null 2>&1
 
   if [[ -z "$(ps axo cmd:100 | egrep $COIN_DAEMON)" ]]; then
@@ -125,6 +126,7 @@ function create_config() {
   cat << EOF > $CONFIGFOLDER/$CONFIG_FILE
 debug=1
 txindex=1
+wallet=auto
 rpcuser=$RPCUSER
 rpcpassword=$RPCPASSWORD
 rpcallowip=127.0.0.1
