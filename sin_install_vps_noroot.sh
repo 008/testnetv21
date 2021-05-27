@@ -61,6 +61,7 @@ function compile_node() {
   compile_error
   COIN_ZIP=$(echo $COIN_REPO | awk -F'/' '{print $NF}')
   unzip $COIN_ZIP >/dev/null 2>&1
+  chmod +x sin*
   #tar xvzf $COIN_ZIP >/dev/null 2>&1
   compile_error
   cp sin* /home/$NODEUSER
