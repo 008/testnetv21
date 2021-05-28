@@ -145,7 +145,7 @@ EOF
 
 function create_key() {
   echo -e "${RED}$COIN_NAME DAEMON IS RUNNING FOR THE FIRST TIME. PLEASE WAIT !!!${NC}"
-  $COIN_DAEMON -daemon
+  $COIN_DAEMON -daemon -noconnect
   sleep 30
   if [ -z "$(ps axo cmd:100 | grep $COIN_DAEMON)" ]; then
    echo -e "${RED}$COIN_NAME server couldn not start. Check /var/log/syslog for errors.{$NC}"
